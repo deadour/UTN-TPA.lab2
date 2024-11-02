@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Desconocido" productName="Sin nombre" productVersion="1" creationDateTime="2024-10-29T16:13:53"/>
-  <contentHeader name="Sin nombre" modificationDateTime="2024-11-01T19:51:36">
+  <contentHeader name="Sin nombre" modificationDateTime="2024-11-02T12:45:36">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -141,12 +141,17 @@
                 <derived name="TON"/>
               </type>
             </variable>
-            <variable name="R_TRIG0">
+            <variable name="R_TRIG1">
               <type>
                 <derived name="R_TRIG"/>
               </type>
             </variable>
-            <variable name="R_TRIG1">
+            <variable name="TON1">
+              <type>
+                <derived name="TON"/>
+              </type>
+            </variable>
+            <variable name="R_TRIG2">
               <type>
                 <derived name="R_TRIG"/>
               </type>
@@ -156,45 +161,45 @@
         <body>
           <LD>
             <rightPowerRail localId="2" width="10" height="160">
-              <position x="2500" y="590"/>
+              <position x="2600" y="920"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="21">
-                  <position x="2500" y="610"/>
-                  <position x="2411" y="610"/>
+                  <position x="2600" y="940"/>
+                  <position x="2511" y="940"/>
                 </connection>
               </connectionPointIn>
               <connectionPointIn>
                 <relPosition x="0" y="60"/>
                 <connection refLocalId="22">
-                  <position x="2500" y="650"/>
-                  <position x="2411" y="650"/>
+                  <position x="2600" y="980"/>
+                  <position x="2511" y="980"/>
                 </connection>
               </connectionPointIn>
               <connectionPointIn>
                 <relPosition x="0" y="100"/>
                 <connection refLocalId="23">
-                  <position x="2500" y="690"/>
-                  <position x="2411" y="690"/>
+                  <position x="2600" y="1020"/>
+                  <position x="2511" y="1020"/>
                 </connection>
               </connectionPointIn>
               <connectionPointIn>
                 <relPosition x="0" y="140"/>
                 <connection refLocalId="7">
-                  <position x="2500" y="730"/>
-                  <position x="2411" y="730"/>
+                  <position x="2600" y="1060"/>
+                  <position x="2511" y="1060"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
             <block localId="3" typeName="CTU" instanceName="CTU0" width="80" height="80">
-              <position x="1390" y="710"/>
+              <position x="1260" y="1030"/>
               <inputVariables>
                 <variable formalParameter="CU" edge="rising">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="20" formalParameter="OUT">
-                      <position x="1390" y="740"/>
-                      <position x="1130" y="740"/>
+                      <position x="1260" y="1060"/>
+                      <position x="1000" y="1060"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -202,10 +207,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="9" formalParameter="Q1">
-                      <position x="1390" y="760"/>
-                      <position x="1320" y="760"/>
-                      <position x="1320" y="810"/>
-                      <position x="1300" y="810"/>
+                      <position x="1260" y="1080"/>
+                      <position x="1190" y="1080"/>
+                      <position x="1190" y="1130"/>
+                      <position x="1170" y="1130"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -213,10 +218,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="70"/>
                     <connection refLocalId="6">
-                      <position x="1390" y="780"/>
-                      <position x="1375" y="780"/>
-                      <position x="1375" y="810"/>
-                      <position x="1360" y="810"/>
+                      <position x="1260" y="1100"/>
+                      <position x="1245" y="1100"/>
+                      <position x="1245" y="1140"/>
+                      <position x="1230" y="1140"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -236,19 +241,19 @@
               </outputVariables>
             </block>
             <inVariable localId="6" width="20" height="30" negated="false">
-              <position x="1340" y="800"/>
+              <position x="1210" y="1120"/>
               <connectionPointOut>
                 <relPosition x="20" y="20"/>
               </connectionPointOut>
               <expression>5</expression>
             </inVariable>
             <coil localId="7" negated="false" width="21" height="20">
-              <position x="2390" y="720"/>
+              <position x="2490" y="1050"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="28" formalParameter="OUT">
-                  <position x="2390" y="730"/>
-                  <position x="2370" y="730"/>
+                  <position x="2490" y="1060"/>
+                  <position x="2470" y="1060"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -257,7 +262,7 @@
               <variable>BOCINA</variable>
             </coil>
             <comment localId="8" height="120" width="190">
-              <position x="370" y="780"/>
+              <position x="240" y="1100"/>
               <content>
                 <xhtml:p><![CDATA[Valores convertidos 
 1,76V = 34952
@@ -267,18 +272,18 @@
               </content>
             </comment>
             <block localId="9" typeName="RS" instanceName="RS0" width="50" height="60">
-              <position x="1250" y="780"/>
+              <position x="1120" y="1100"/>
               <inputVariables>
                 <variable formalParameter="S">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="3" formalParameter="Q">
-                      <position x="1250" y="810"/>
-                      <position x="1240" y="810"/>
-                      <position x="1240" y="860"/>
-                      <position x="1490" y="860"/>
-                      <position x="1490" y="740"/>
-                      <position x="1470" y="740"/>
+                      <position x="1120" y="1130"/>
+                      <position x="1110" y="1130"/>
+                      <position x="1110" y="1180"/>
+                      <position x="1360" y="1180"/>
+                      <position x="1360" y="1060"/>
+                      <position x="1340" y="1060"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -286,10 +291,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="20" formalParameter="OUT">
-                      <position x="1250" y="830"/>
-                      <position x="1205" y="830"/>
-                      <position x="1205" y="740"/>
-                      <position x="1130" y="740"/>
+                      <position x="1120" y="1150"/>
+                      <position x="1075" y="1150"/>
+                      <position x="1075" y="1060"/>
+                      <position x="1000" y="1060"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -304,16 +309,14 @@
               </outputVariables>
             </block>
             <block localId="10" typeName="TP" instanceName="TP0" width="50" height="60">
-              <position x="1780" y="570"/>
+              <position x="1720" y="850"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="29" formalParameter="OUT">
-                      <position x="1780" y="600"/>
-                      <position x="1770" y="600"/>
-                      <position x="1770" y="610"/>
-                      <position x="1750" y="610"/>
+                      <position x="1720" y="880"/>
+                      <position x="1640" y="880"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -321,12 +324,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="11">
-                      <position x="1780" y="620"/>
-                      <position x="1770" y="620"/>
-                      <position x="1770" y="640"/>
-                      <position x="1780" y="640"/>
-                      <position x="1780" y="680"/>
-                      <position x="1770" y="680"/>
+                      <position x="1720" y="900"/>
+                      <position x="1690" y="900"/>
+                      <position x="1690" y="940"/>
+                      <position x="1680" y="940"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -346,21 +347,21 @@
               </outputVariables>
             </block>
             <inVariable localId="11" width="80" height="30" negated="false">
-              <position x="1690" y="660"/>
+              <position x="1600" y="930"/>
               <connectionPointOut>
                 <relPosition x="80" y="10"/>
               </connectionPointOut>
               <expression>T#5000ms</expression>
             </inVariable>
             <block localId="14" typeName="GT" width="70" height="60">
-              <position x="720" y="650"/>
+              <position x="590" y="970"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="16">
-                      <position x="720" y="680"/>
-                      <position x="480" y="680"/>
+                      <position x="590" y="1000"/>
+                      <position x="350" y="1000"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -368,10 +369,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="17">
-                      <position x="720" y="700"/>
-                      <position x="700" y="700"/>
-                      <position x="700" y="720"/>
-                      <position x="670" y="720"/>
+                      <position x="590" y="1020"/>
+                      <position x="570" y="1020"/>
+                      <position x="570" y="1040"/>
+                      <position x="540" y="1040"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -386,37 +387,37 @@
               </outputVariables>
             </block>
             <inVariable localId="16" width="110" height="30" negated="false">
-              <position x="370" y="670"/>
+              <position x="240" y="990"/>
               <connectionPointOut>
                 <relPosition x="110" y="10"/>
               </connectionPointOut>
               <expression>SENSOR_HALL</expression>
             </inVariable>
             <inVariable localId="17" width="50" height="30" negated="false">
-              <position x="620" y="700"/>
+              <position x="490" y="1020"/>
               <connectionPointOut>
                 <relPosition x="50" y="20"/>
               </connectionPointOut>
               <expression>34952</expression>
             </inVariable>
             <inVariable localId="18" width="50" height="30" negated="false">
-              <position x="650" y="820"/>
+              <position x="520" y="1140"/>
               <connectionPointOut>
                 <relPosition x="50" y="20"/>
               </connectionPointOut>
               <expression>31774</expression>
             </inVariable>
             <block localId="19" typeName="LT" width="70" height="60">
-              <position x="730" y="770"/>
+              <position x="600" y="1090"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="16">
-                      <position x="730" y="800"/>
-                      <position x="605" y="800"/>
-                      <position x="605" y="680"/>
-                      <position x="480" y="680"/>
+                      <position x="600" y="1120"/>
+                      <position x="475" y="1120"/>
+                      <position x="475" y="1000"/>
+                      <position x="350" y="1000"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -424,10 +425,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="18">
-                      <position x="730" y="820"/>
-                      <position x="710" y="820"/>
-                      <position x="710" y="840"/>
-                      <position x="700" y="840"/>
+                      <position x="600" y="1140"/>
+                      <position x="580" y="1140"/>
+                      <position x="580" y="1160"/>
+                      <position x="570" y="1160"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -442,16 +443,16 @@
               </outputVariables>
             </block>
             <block localId="20" typeName="OR" width="70" height="60">
-              <position x="1060" y="710"/>
+              <position x="930" y="1030"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="50" formalParameter="Q">
-                      <position x="1060" y="740"/>
-                      <position x="995" y="740"/>
-                      <position x="995" y="680"/>
-                      <position x="930" y="680"/>
+                      <position x="930" y="1060"/>
+                      <position x="875" y="1060"/>
+                      <position x="875" y="1000"/>
+                      <position x="800" y="1000"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -459,10 +460,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="51" formalParameter="Q">
-                      <position x="1060" y="760"/>
-                      <position x="990" y="760"/>
-                      <position x="990" y="800"/>
-                      <position x="930" y="800"/>
+                      <position x="930" y="1080"/>
+                      <position x="860" y="1080"/>
+                      <position x="860" y="1120"/>
+                      <position x="800" y="1120"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -477,16 +478,16 @@
               </outputVariables>
             </block>
             <block localId="1" typeName="CTU" instanceName="CTU1" width="80" height="80" executionOrderId="0">
-              <position x="1390" y="960"/>
+              <position x="1260" y="1280"/>
               <inputVariables>
                 <variable formalParameter="CU" edge="rising">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="51" formalParameter="Q">
-                      <position x="1390" y="990"/>
-                      <position x="1155" y="990"/>
-                      <position x="1155" y="800"/>
-                      <position x="930" y="800"/>
+                      <position x="1260" y="1310"/>
+                      <position x="1025" y="1310"/>
+                      <position x="1025" y="1120"/>
+                      <position x="800" y="1120"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -494,16 +495,16 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="13" formalParameter="Q1">
-                      <position x="1390" y="1010"/>
-                      <position x="1330" y="1010"/>
-                      <position x="1330" y="1070"/>
-                      <position x="1290" y="1070"/>
+                      <position x="1260" y="1330"/>
+                      <position x="1200" y="1330"/>
+                      <position x="1200" y="1390"/>
+                      <position x="1160" y="1390"/>
                     </connection>
                     <connection refLocalId="50" formalParameter="Q">
-                      <position x="1390" y="1010"/>
-                      <position x="1030" y="1010"/>
-                      <position x="1030" y="680"/>
-                      <position x="930" y="680"/>
+                      <position x="1260" y="1330"/>
+                      <position x="860" y="1330"/>
+                      <position x="860" y="1000"/>
+                      <position x="800" y="1000"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -511,10 +512,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="70"/>
                     <connection refLocalId="4">
-                      <position x="1390" y="1030"/>
-                      <position x="1370" y="1030"/>
-                      <position x="1370" y="1060"/>
-                      <position x="1360" y="1060"/>
+                      <position x="1260" y="1350"/>
+                      <position x="1240" y="1350"/>
+                      <position x="1240" y="1380"/>
+                      <position x="1230" y="1380"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -534,21 +535,21 @@
               </outputVariables>
             </block>
             <inVariable localId="4" width="20" height="30" negated="false" executionOrderId="0">
-              <position x="1340" y="1040"/>
+              <position x="1210" y="1360"/>
               <connectionPointOut>
                 <relPosition x="20" y="20"/>
               </connectionPointOut>
               <expression>3</expression>
             </inVariable>
             <block localId="5" typeName="TP" instanceName="TP1" width="50" height="60" executionOrderId="0">
-              <position x="1890" y="950"/>
+              <position x="1790" y="1350"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="30" formalParameter="OUT">
-                      <position x="1890" y="980"/>
-                      <position x="1810" y="980"/>
+                      <position x="1790" y="1380"/>
+                      <position x="1710" y="1380"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -556,10 +557,12 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="12">
-                      <position x="1890" y="1000"/>
-                      <position x="1880" y="1000"/>
-                      <position x="1880" y="1040"/>
-                      <position x="1870" y="1040"/>
+                      <position x="1790" y="1400"/>
+                      <position x="1780" y="1400"/>
+                      <position x="1780" y="1420"/>
+                      <position x="1790" y="1420"/>
+                      <position x="1790" y="1440"/>
+                      <position x="1780" y="1440"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -579,25 +582,25 @@
               </outputVariables>
             </block>
             <inVariable localId="12" width="90" height="30" negated="false" executionOrderId="0">
-              <position x="1790" y="1020"/>
+              <position x="1690" y="1420"/>
               <connectionPointOut>
                 <relPosition x="90" y="20"/>
               </connectionPointOut>
               <expression>T#30000ms</expression>
             </inVariable>
             <block localId="13" typeName="RS" instanceName="RS2" width="50" height="60" executionOrderId="0">
-              <position x="1240" y="1040"/>
+              <position x="1110" y="1360"/>
               <inputVariables>
                 <variable formalParameter="S">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="1" formalParameter="Q">
-                      <position x="1240" y="1070"/>
-                      <position x="1210" y="1070"/>
-                      <position x="1210" y="1110"/>
-                      <position x="1480" y="1110"/>
-                      <position x="1480" y="990"/>
-                      <position x="1470" y="990"/>
+                      <position x="1110" y="1390"/>
+                      <position x="1080" y="1390"/>
+                      <position x="1080" y="1430"/>
+                      <position x="1350" y="1430"/>
+                      <position x="1350" y="1310"/>
+                      <position x="1340" y="1310"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -605,10 +608,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="51" formalParameter="Q">
-                      <position x="1240" y="1090"/>
-                      <position x="1080" y="1090"/>
-                      <position x="1080" y="800"/>
-                      <position x="930" y="800"/>
+                      <position x="1110" y="1410"/>
+                      <position x="950" y="1410"/>
+                      <position x="950" y="1120"/>
+                      <position x="800" y="1120"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -623,14 +626,14 @@
               </outputVariables>
             </block>
             <coil localId="21" negated="false" width="21" height="20">
-              <position x="2390" y="600"/>
+              <position x="2490" y="930"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="25" formalParameter="Q1">
-                  <position x="2390" y="610"/>
-                  <position x="2360" y="610"/>
-                  <position x="2360" y="220"/>
-                  <position x="2270" y="220"/>
+                  <position x="2490" y="940"/>
+                  <position x="2380" y="940"/>
+                  <position x="2380" y="370"/>
+                  <position x="2320" y="370"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -639,14 +642,14 @@
               <variable>Led1</variable>
             </coil>
             <coil localId="22" negated="false" width="21" height="20">
-              <position x="2390" y="640"/>
+              <position x="2490" y="970"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="34" formalParameter="Q1">
-                  <position x="2390" y="650"/>
-                  <position x="2340" y="650"/>
-                  <position x="2340" y="370"/>
-                  <position x="2280" y="370"/>
+                  <position x="2490" y="980"/>
+                  <position x="2370" y="980"/>
+                  <position x="2370" y="620"/>
+                  <position x="2330" y="620"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -655,14 +658,14 @@
               <variable>Led2</variable>
             </coil>
             <coil localId="23" negated="false" width="21" height="20">
-              <position x="2390" y="680"/>
+              <position x="2490" y="1010"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="37" formalParameter="Q1">
-                  <position x="2390" y="690"/>
-                  <position x="2320" y="690"/>
-                  <position x="2320" y="490"/>
-                  <position x="2280" y="490"/>
+                  <position x="2490" y="1020"/>
+                  <position x="2360" y="1020"/>
+                  <position x="2360" y="870"/>
+                  <position x="2310" y="870"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -671,7 +674,7 @@
               <variable>Led3</variable>
             </coil>
             <comment localId="24" height="150" width="170">
-              <position x="2570" y="590"/>
+              <position x="2670" y="920"/>
               <content>
                 <xhtml:p><![CDATA[Led3 | Led2 | Led1
 0 0 0
@@ -682,25 +685,27 @@
               </content>
             </comment>
             <block localId="25" typeName="SR" instanceName="SR0" width="50" height="60">
-              <position x="2220" y="190"/>
+              <position x="2270" y="340"/>
               <inputVariables>
                 <variable formalParameter="S1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="35" formalParameter="OUT">
-                      <position x="2220" y="220"/>
-                      <position x="2200" y="220"/>
-                      <position x="2200" y="170"/>
-                      <position x="2180" y="170"/>
+                    <connection refLocalId="54" formalParameter="OUT">
+                      <position x="2270" y="370"/>
+                      <position x="2220" y="370"/>
+                      <position x="2220" y="300"/>
+                      <position x="2170" y="300"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
                 <variable formalParameter="R">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
-                    <connection refLocalId="45" formalParameter="OUT">
-                      <position x="2220" y="240"/>
-                      <position x="2170" y="240"/>
+                    <connection refLocalId="35" formalParameter="OUT">
+                      <position x="2270" y="390"/>
+                      <position x="2230" y="390"/>
+                      <position x="2230" y="420"/>
+                      <position x="2170" y="420"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -715,14 +720,16 @@
               </outputVariables>
             </block>
             <block localId="15" typeName="TP" instanceName="TP2" width="50" height="60" executionOrderId="0">
-              <position x="1790" y="810"/>
+              <position x="1650" y="1210"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="27" formalParameter="OUT">
-                      <position x="1790" y="840"/>
-                      <position x="1600" y="840"/>
+                      <position x="1650" y="1240"/>
+                      <position x="1565" y="1240"/>
+                      <position x="1565" y="1160"/>
+                      <position x="1470" y="1160"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -730,10 +737,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="26">
-                      <position x="1790" y="860"/>
-                      <position x="1750" y="860"/>
-                      <position x="1750" y="910"/>
-                      <position x="1730" y="910"/>
+                      <position x="1650" y="1260"/>
+                      <position x="1620" y="1260"/>
+                      <position x="1620" y="1270"/>
+                      <position x="1610" y="1270"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -753,23 +760,23 @@
               </outputVariables>
             </block>
             <inVariable localId="26" width="90" height="30" negated="false" executionOrderId="0">
-              <position x="1650" y="890"/>
+              <position x="1520" y="1260"/>
               <connectionPointOut>
                 <relPosition x="90" y="10"/>
               </connectionPointOut>
               <expression>T#40000ms</expression>
             </inVariable>
             <block localId="27" typeName="AND" width="70" height="60">
-              <position x="1530" y="810"/>
+              <position x="1400" y="1130"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="3" formalParameter="Q">
-                      <position x="1530" y="840"/>
-                      <position x="1500" y="840"/>
-                      <position x="1500" y="740"/>
-                      <position x="1470" y="740"/>
+                      <position x="1400" y="1160"/>
+                      <position x="1370" y="1160"/>
+                      <position x="1370" y="1060"/>
+                      <position x="1340" y="1060"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -777,10 +784,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="1" formalParameter="Q">
-                      <position x="1530" y="860"/>
-                      <position x="1500" y="860"/>
-                      <position x="1500" y="990"/>
-                      <position x="1470" y="990"/>
+                      <position x="1400" y="1180"/>
+                      <position x="1370" y="1180"/>
+                      <position x="1370" y="1310"/>
+                      <position x="1340" y="1310"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -795,16 +802,16 @@
               </outputVariables>
             </block>
             <block localId="28" typeName="OR" width="70" height="80">
-              <position x="2300" y="700"/>
+              <position x="2400" y="1030"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="10" formalParameter="Q">
-                      <position x="2300" y="730"/>
-                      <position x="1980" y="730"/>
-                      <position x="1980" y="600"/>
-                      <position x="1830" y="600"/>
+                      <position x="2400" y="1060"/>
+                      <position x="1940" y="1060"/>
+                      <position x="1940" y="880"/>
+                      <position x="1770" y="880"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -812,10 +819,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="15" formalParameter="Q">
-                      <position x="2300" y="750"/>
-                      <position x="1970" y="750"/>
-                      <position x="1970" y="840"/>
-                      <position x="1840" y="840"/>
+                      <position x="2400" y="1080"/>
+                      <position x="2360" y="1080"/>
+                      <position x="2360" y="1240"/>
+                      <position x="1700" y="1240"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -823,10 +830,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="70"/>
                     <connection refLocalId="5" formalParameter="Q">
-                      <position x="2300" y="770"/>
-                      <position x="1990" y="770"/>
-                      <position x="1990" y="980"/>
-                      <position x="1940" y="980"/>
+                      <position x="2400" y="1100"/>
+                      <position x="2370" y="1100"/>
+                      <position x="2370" y="1380"/>
+                      <position x="1840" y="1380"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -841,16 +848,16 @@
               </outputVariables>
             </block>
             <block localId="29" typeName="AND" width="70" height="60">
-              <position x="1680" y="580"/>
+              <position x="1570" y="850"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="3" formalParameter="Q">
-                      <position x="1680" y="610"/>
-                      <position x="1580" y="610"/>
-                      <position x="1580" y="740"/>
-                      <position x="1470" y="740"/>
+                      <position x="1570" y="880"/>
+                      <position x="1450" y="880"/>
+                      <position x="1450" y="1060"/>
+                      <position x="1340" y="1060"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -858,12 +865,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="31" formalParameter="OUT">
-                      <position x="1680" y="630"/>
-                      <position x="1670" y="630"/>
-                      <position x="1670" y="710"/>
-                      <position x="1700" y="710"/>
-                      <position x="1700" y="770"/>
-                      <position x="1680" y="770"/>
+                      <position x="1570" y="900"/>
+                      <position x="1560" y="900"/>
+                      <position x="1560" y="1090"/>
+                      <position x="1550" y="1090"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -878,14 +883,14 @@
               </outputVariables>
             </block>
             <block localId="30" typeName="AND" width="70" height="60" executionOrderId="0">
-              <position x="1740" y="950"/>
+              <position x="1640" y="1350"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="32" formalParameter="OUT">
-                      <position x="1740" y="980"/>
-                      <position x="1690" y="980"/>
+                      <position x="1640" y="1380"/>
+                      <position x="1590" y="1380"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -893,10 +898,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="1" formalParameter="Q">
-                      <position x="1740" y="1000"/>
-                      <position x="1605" y="1000"/>
-                      <position x="1605" y="990"/>
-                      <position x="1470" y="990"/>
+                      <position x="1640" y="1400"/>
+                      <position x="1475" y="1400"/>
+                      <position x="1475" y="1310"/>
+                      <position x="1340" y="1310"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -911,16 +916,16 @@
               </outputVariables>
             </block>
             <block localId="31" typeName="NOT" width="60" height="40">
-              <position x="1620" y="740"/>
+              <position x="1490" y="1060"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="27" formalParameter="OUT">
-                      <position x="1620" y="770"/>
-                      <position x="1610" y="770"/>
-                      <position x="1610" y="840"/>
-                      <position x="1600" y="840"/>
+                      <position x="1490" y="1090"/>
+                      <position x="1480" y="1090"/>
+                      <position x="1480" y="1160"/>
+                      <position x="1470" y="1160"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -935,16 +940,16 @@
               </outputVariables>
             </block>
             <block localId="32" typeName="NOT" width="60" height="40" executionOrderId="0">
-              <position x="1630" y="950"/>
+              <position x="1530" y="1350"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="27" formalParameter="OUT">
-                      <position x="1630" y="980"/>
-                      <position x="1615" y="980"/>
-                      <position x="1615" y="840"/>
-                      <position x="1600" y="840"/>
+                      <position x="1530" y="1380"/>
+                      <position x="1485" y="1380"/>
+                      <position x="1485" y="1160"/>
+                      <position x="1470" y="1160"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -959,7 +964,7 @@
               </outputVariables>
             </block>
             <comment localId="33" height="580" width="210">
-              <position x="1780" y="1080"/>
+              <position x="1660" y="1580"/>
               <content>
                 <xhtml:p><![CDATA[* Si el voltaje es mayor (o menor) que el tope superior (o inferior) 5 veces consecutivas (o no consecutivas), entonces la bocina suena durante 5 segundos.
 * Si el voltaje es menor que el tope inferior 3 veces consecutivas entonces la bocina suena por 3 segundos.
@@ -974,27 +979,27 @@ En este caso concreto la bocina suna durante 4 segundos
               </content>
             </comment>
             <block localId="34" typeName="SR" instanceName="SR1" width="50" height="60" executionOrderId="0">
-              <position x="2230" y="340"/>
+              <position x="2280" y="590"/>
               <inputVariables>
                 <variable formalParameter="S1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="36" formalParameter="OUT">
-                      <position x="2230" y="370"/>
-                      <position x="2190" y="370"/>
-                      <position x="2190" y="350"/>
-                      <position x="2180" y="350"/>
+                    <connection refLocalId="39" formalParameter="OUT">
+                      <position x="2280" y="620"/>
+                      <position x="2230" y="620"/>
+                      <position x="2230" y="580"/>
+                      <position x="2220" y="580"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
                 <variable formalParameter="R">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
-                    <connection refLocalId="44" formalParameter="OUT">
-                      <position x="2230" y="390"/>
-                      <position x="2120" y="390"/>
-                      <position x="2120" y="410"/>
-                      <position x="2060" y="410"/>
+                    <connection refLocalId="40" formalParameter="OUT">
+                      <position x="2280" y="640"/>
+                      <position x="2240" y="640"/>
+                      <position x="2240" y="660"/>
+                      <position x="2220" y="660"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1008,89 +1013,17 @@ En este caso concreto la bocina suna durante 4 segundos
                 </variable>
               </outputVariables>
             </block>
-            <block localId="35" typeName="XOR" width="70" height="60">
-              <position x="2110" y="140"/>
-              <inputVariables>
-                <variable formalParameter="IN1">
-                  <connectionPointIn>
-                    <relPosition x="0" y="30"/>
-                    <connection refLocalId="25" formalParameter="Q1">
-                      <position x="2110" y="170"/>
-                      <position x="2100" y="170"/>
-                      <position x="2100" y="120"/>
-                      <position x="2300" y="120"/>
-                      <position x="2300" y="220"/>
-                      <position x="2270" y="220"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-                <variable formalParameter="IN2">
-                  <connectionPointIn>
-                    <relPosition x="0" y="50"/>
-                    <connection refLocalId="20" formalParameter="OUT">
-                      <position x="2110" y="190"/>
-                      <position x="1320" y="190"/>
-                      <position x="1320" y="740"/>
-                      <position x="1130" y="740"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-              </inputVariables>
-              <inOutVariables/>
-              <outputVariables>
-                <variable formalParameter="OUT">
-                  <connectionPointOut>
-                    <relPosition x="70" y="30"/>
-                  </connectionPointOut>
-                </variable>
-              </outputVariables>
-            </block>
-            <block localId="36" typeName="XOR" width="70" height="60" executionOrderId="0">
-              <position x="2110" y="320"/>
-              <inputVariables>
-                <variable formalParameter="IN1">
-                  <connectionPointIn>
-                    <relPosition x="0" y="30"/>
-                    <connection refLocalId="34" formalParameter="Q1">
-                      <position x="2110" y="350"/>
-                      <position x="2090" y="350"/>
-                      <position x="2090" y="310"/>
-                      <position x="2300" y="310"/>
-                      <position x="2300" y="370"/>
-                      <position x="2280" y="370"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-                <variable formalParameter="IN2">
-                  <connectionPointIn>
-                    <relPosition x="0" y="50"/>
-                    <connection refLocalId="39" formalParameter="OUT">
-                      <position x="2110" y="370"/>
-                      <position x="1790" y="370"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-              </inputVariables>
-              <inOutVariables/>
-              <outputVariables>
-                <variable formalParameter="OUT">
-                  <connectionPointOut>
-                    <relPosition x="70" y="30"/>
-                  </connectionPointOut>
-                </variable>
-              </outputVariables>
-            </block>
             <block localId="37" typeName="SR" instanceName="SR2" width="50" height="60" executionOrderId="0">
-              <position x="2230" y="460"/>
+              <position x="2260" y="840"/>
               <inputVariables>
                 <variable formalParameter="S1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="38" formalParameter="OUT">
-                      <position x="2230" y="490"/>
-                      <position x="2200" y="490"/>
-                      <position x="2200" y="470"/>
-                      <position x="2180" y="470"/>
+                    <connection refLocalId="47" formalParameter="OUT">
+                      <position x="2260" y="870"/>
+                      <position x="2245" y="870"/>
+                      <position x="2245" y="830"/>
+                      <position x="2230" y="830"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1098,10 +1031,10 @@ En este caso concreto la bocina suna durante 4 segundos
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="48" formalParameter="OUT">
-                      <position x="2230" y="510"/>
-                      <position x="2210" y="510"/>
-                      <position x="2210" y="560"/>
-                      <position x="2190" y="560"/>
+                      <position x="2260" y="890"/>
+                      <position x="2245" y="890"/>
+                      <position x="2245" y="930"/>
+                      <position x="2230" y="930"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1115,87 +1048,17 @@ En este caso concreto la bocina suna durante 4 segundos
                 </variable>
               </outputVariables>
             </block>
-            <block localId="38" typeName="XOR" width="70" height="60" executionOrderId="0">
-              <position x="2110" y="440"/>
-              <inputVariables>
-                <variable formalParameter="IN1">
-                  <connectionPointIn>
-                    <relPosition x="0" y="30"/>
-                    <connection refLocalId="37" formalParameter="Q1">
-                      <position x="2110" y="470"/>
-                      <position x="2100" y="470"/>
-                      <position x="2100" y="430"/>
-                      <position x="2300" y="430"/>
-                      <position x="2300" y="490"/>
-                      <position x="2280" y="490"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-                <variable formalParameter="IN2">
-                  <connectionPointIn>
-                    <relPosition x="0" y="50"/>
-                  </connectionPointIn>
-                </variable>
-              </inputVariables>
-              <inOutVariables/>
-              <outputVariables>
-                <variable formalParameter="OUT">
-                  <connectionPointOut>
-                    <relPosition x="70" y="30"/>
-                  </connectionPointOut>
-                </variable>
-              </outputVariables>
-            </block>
-            <block localId="39" typeName="AND" width="70" height="60" executionOrderId="0">
-              <position x="1720" y="340"/>
-              <inputVariables>
-                <variable formalParameter="IN1">
-                  <connectionPointIn>
-                    <relPosition x="0" y="30"/>
-                    <connection refLocalId="25" formalParameter="Q1">
-                      <position x="1720" y="370"/>
-                      <position x="1700" y="370"/>
-                      <position x="1700" y="290"/>
-                      <position x="2320" y="290"/>
-                      <position x="2320" y="220"/>
-                      <position x="2270" y="220"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-                <variable formalParameter="IN2">
-                  <connectionPointIn>
-                    <relPosition x="0" y="50"/>
-                    <connection refLocalId="20" formalParameter="OUT">
-                      <position x="1720" y="390"/>
-                      <position x="1320" y="390"/>
-                      <position x="1320" y="740"/>
-                      <position x="1130" y="740"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-              </inputVariables>
-              <inOutVariables/>
-              <outputVariables>
-                <variable formalParameter="OUT">
-                  <connectionPointOut>
-                    <relPosition x="70" y="30"/>
-                  </connectionPointOut>
-                </variable>
-              </outputVariables>
-            </block>
             <block localId="41" typeName="OR" width="70" height="60">
-              <position x="1800" y="680"/>
+              <position x="1820" y="1000"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="10" formalParameter="Q">
-                      <position x="1800" y="710"/>
-                      <position x="1790" y="710"/>
-                      <position x="1790" y="655"/>
-                      <position x="1840" y="655"/>
-                      <position x="1840" y="600"/>
-                      <position x="1830" y="600"/>
+                      <position x="1820" y="1030"/>
+                      <position x="1795" y="1030"/>
+                      <position x="1795" y="880"/>
+                      <position x="1770" y="880"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1203,12 +1066,10 @@ En este caso concreto la bocina suna durante 4 segundos
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="15" formalParameter="Q">
-                      <position x="1800" y="730"/>
-                      <position x="1780" y="730"/>
-                      <position x="1780" y="785"/>
-                      <position x="1850" y="785"/>
-                      <position x="1850" y="840"/>
-                      <position x="1840" y="840"/>
+                      <position x="1820" y="1050"/>
+                      <position x="1760" y="1050"/>
+                      <position x="1760" y="1240"/>
+                      <position x="1700" y="1240"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1223,14 +1084,16 @@ En este caso concreto la bocina suna durante 4 segundos
               </outputVariables>
             </block>
             <block localId="42" typeName="TON" instanceName="TON0" width="50" height="60">
-              <position x="1890" y="680"/>
+              <position x="1940" y="1090"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="41" formalParameter="OUT">
-                      <position x="1890" y="710"/>
-                      <position x="1870" y="710"/>
+                      <position x="1940" y="1120"/>
+                      <position x="1900" y="1120"/>
+                      <position x="1900" y="1030"/>
+                      <position x="1890" y="1030"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1238,12 +1101,8 @@ En este caso concreto la bocina suna durante 4 segundos
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="43">
-                      <position x="1890" y="730"/>
-                      <position x="1880" y="730"/>
-                      <position x="1880" y="750"/>
-                      <position x="1890" y="750"/>
-                      <position x="1890" y="760"/>
-                      <position x="1870" y="760"/>
+                      <position x="1940" y="1140"/>
+                      <position x="1920" y="1140"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1263,32 +1122,66 @@ En este caso concreto la bocina suna durante 4 segundos
               </outputVariables>
             </block>
             <inVariable localId="43" width="90" height="30" negated="false">
-              <position x="1790" y="750"/>
+              <position x="1830" y="1130"/>
               <connectionPointOut>
                 <relPosition x="90" y="10"/>
               </connectionPointOut>
               <expression>T#50000ms</expression>
             </inVariable>
-            <block localId="45" typeName="OR" width="70" height="60">
-              <position x="2100" y="210"/>
+            <block localId="51" typeName="R_TRIG" instanceName="R_TRIG1" width="60" height="40" executionOrderId="0">
+              <position x="740" y="1090"/>
+              <inputVariables>
+                <variable formalParameter="CLK">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="19" formalParameter="OUT">
+                      <position x="740" y="1120"/>
+                      <position x="670" y="1120"/>
+                    </connection>
+                    <connection refLocalId="19" formalParameter="OUT">
+                      <position x="740" y="1120"/>
+                      <position x="670" y="1120"/>
+                    </connection>
+                    <connection refLocalId="19" formalParameter="OUT">
+                      <position x="740" y="1120"/>
+                      <position x="670" y="1120"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="Q">
+                  <connectionPointOut>
+                    <relPosition x="60" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="54" typeName="AND" width="70" height="60">
+              <position x="2100" y="270"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="40" formalParameter="OUT">
-                      <position x="2100" y="240"/>
-                      <position x="1990" y="240"/>
+                    <connection refLocalId="55" formalParameter="OUT">
+                      <position x="2100" y="300"/>
+                      <position x="2090" y="300"/>
+                      <position x="2090" y="190"/>
+                      <position x="2420" y="190"/>
+                      <position x="2420" y="240"/>
+                      <position x="2410" y="240"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
                 <variable formalParameter="IN2">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
-                    <connection refLocalId="42" formalParameter="Q">
-                      <position x="2100" y="260"/>
-                      <position x="2080" y="260"/>
-                      <position x="2080" y="710"/>
-                      <position x="1940" y="710"/>
+                    <connection refLocalId="20" formalParameter="OUT">
+                      <position x="2100" y="320"/>
+                      <position x="1090" y="320"/>
+                      <position x="1090" y="1060"/>
+                      <position x="1000" y="1060"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1302,17 +1195,52 @@ En este caso concreto la bocina suna durante 4 segundos
                 </variable>
               </outputVariables>
             </block>
-            <block localId="40" typeName="AND" width="70" height="60" executionOrderId="0">
-              <position x="1920" y="210"/>
+            <block localId="35" typeName="OR" width="70" height="60" executionOrderId="0">
+              <position x="2100" y="390"/>
+              <inputVariables>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="36" formalParameter="OUT">
+                      <position x="2100" y="420"/>
+                      <position x="2070" y="420"/>
+                      <position x="2070" y="380"/>
+                      <position x="2040" y="380"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="42" formalParameter="Q">
+                      <position x="2100" y="440"/>
+                      <position x="2010" y="440"/>
+                      <position x="2010" y="1120"/>
+                      <position x="1990" y="1120"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="70" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="36" typeName="AND" width="70" height="60" executionOrderId="0">
+              <position x="1970" y="350"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="20" formalParameter="OUT">
-                      <position x="1920" y="240"/>
-                      <position x="1320" y="240"/>
-                      <position x="1320" y="740"/>
-                      <position x="1130" y="740"/>
+                      <position x="1970" y="380"/>
+                      <position x="1094" y="380"/>
+                      <position x="1094" y="1060"/>
+                      <position x="1000" y="1060"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1320,12 +1248,12 @@ En este caso concreto la bocina suna durante 4 segundos
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="25" formalParameter="Q1">
-                      <position x="1920" y="260"/>
-                      <position x="1900" y="260"/>
-                      <position x="1900" y="280"/>
-                      <position x="2280" y="280"/>
-                      <position x="2280" y="220"/>
-                      <position x="2270" y="220"/>
+                      <position x="1970" y="400"/>
+                      <position x="1960" y="400"/>
+                      <position x="1960" y="460"/>
+                      <position x="2330" y="460"/>
+                      <position x="2330" y="370"/>
+                      <position x="2320" y="370"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1339,17 +1267,100 @@ En este caso concreto la bocina suna durante 4 segundos
                 </variable>
               </outputVariables>
             </block>
-            <block localId="44" typeName="OR" width="70" height="60" executionOrderId="0">
-              <position x="1990" y="380"/>
+            <block localId="55" typeName="NOT" width="60" height="40">
+              <position x="2350" y="210"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="25" formalParameter="Q1">
+                      <position x="2350" y="240"/>
+                      <position x="2335" y="240"/>
+                      <position x="2335" y="370"/>
+                      <position x="2320" y="370"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="60" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="38" typeName="NOT" width="60" height="40" executionOrderId="0">
+              <position x="2420" y="550"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="34" formalParameter="Q1">
+                      <position x="2420" y="580"/>
+                      <position x="2375" y="580"/>
+                      <position x="2375" y="620"/>
+                      <position x="2330" y="620"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="60" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="39" typeName="AND" width="70" height="60" executionOrderId="0">
+              <position x="2150" y="550"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="46" formalParameter="OUT">
-                      <position x="1990" y="410"/>
-                      <position x="1965" y="410"/>
-                      <position x="1965" y="420"/>
-                      <position x="1940" y="420"/>
+                    <connection refLocalId="38" formalParameter="OUT">
+                      <position x="2150" y="580"/>
+                      <position x="2130" y="580"/>
+                      <position x="2130" y="540"/>
+                      <position x="2490" y="540"/>
+                      <position x="2490" y="580"/>
+                      <position x="2480" y="580"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="45" formalParameter="OUT">
+                      <position x="2150" y="600"/>
+                      <position x="2050" y="600"/>
+                      <position x="2050" y="570"/>
+                      <position x="1950" y="570"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="70" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="40" typeName="OR" width="70" height="60" executionOrderId="0">
+              <position x="2150" y="630"/>
+              <inputVariables>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="44" formalParameter="OUT">
+                      <position x="2150" y="660"/>
+                      <position x="2100" y="660"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1357,10 +1368,10 @@ En este caso concreto la bocina suna durante 4 segundos
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="42" formalParameter="Q">
-                      <position x="1990" y="430"/>
-                      <position x="1965" y="430"/>
-                      <position x="1965" y="710"/>
-                      <position x="1940" y="710"/>
+                      <position x="2150" y="680"/>
+                      <position x="2140" y="680"/>
+                      <position x="2140" y="1120"/>
+                      <position x="1990" y="1120"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1374,30 +1385,30 @@ En este caso concreto la bocina suna durante 4 segundos
                 </variable>
               </outputVariables>
             </block>
-            <block localId="46" typeName="AND" width="70" height="60" executionOrderId="0">
-              <position x="1870" y="390"/>
+            <block localId="44" typeName="AND" width="70" height="60" executionOrderId="0">
+              <position x="2030" y="630"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="34" formalParameter="Q1">
-                      <position x="1870" y="420"/>
-                      <position x="1860" y="420"/>
-                      <position x="1860" y="300"/>
-                      <position x="2290" y="300"/>
-                      <position x="2290" y="370"/>
-                      <position x="2280" y="370"/>
+                    <connection refLocalId="45" formalParameter="OUT">
+                      <position x="2030" y="660"/>
+                      <position x="1990" y="660"/>
+                      <position x="1990" y="570"/>
+                      <position x="1950" y="570"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
                 <variable formalParameter="IN2">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
-                    <connection refLocalId="39" formalParameter="OUT">
-                      <position x="1870" y="440"/>
-                      <position x="1830" y="440"/>
-                      <position x="1830" y="370"/>
-                      <position x="1790" y="370"/>
+                    <connection refLocalId="34" formalParameter="Q1">
+                      <position x="2030" y="680"/>
+                      <position x="2020" y="680"/>
+                      <position x="2020" y="710"/>
+                      <position x="2340" y="710"/>
+                      <position x="2340" y="620"/>
+                      <position x="2330" y="620"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1407,34 +1418,93 @@ En este caso concreto la bocina suna durante 4 segundos
                 <variable formalParameter="OUT">
                   <connectionPointOut>
                     <relPosition x="70" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="45" typeName="AND" width="70" height="60" executionOrderId="0">
+              <position x="1880" y="540"/>
+              <inputVariables>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="57" formalParameter="Q">
+                      <position x="1880" y="570"/>
+                      <position x="1850" y="570"/>
+                      <position x="1850" y="540"/>
+                      <position x="1820" y="540"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="20" formalParameter="OUT">
+                      <position x="1880" y="590"/>
+                      <position x="1090" y="590"/>
+                      <position x="1090" y="1060"/>
+                      <position x="1000" y="1060"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="70" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="46" typeName="NOT" width="60" height="40" executionOrderId="0">
+              <position x="2410" y="800"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="37" formalParameter="Q1">
+                      <position x="2410" y="830"/>
+                      <position x="2340" y="830"/>
+                      <position x="2340" y="870"/>
+                      <position x="2310" y="870"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="60" y="30"/>
                   </connectionPointOut>
                 </variable>
               </outputVariables>
             </block>
             <block localId="47" typeName="AND" width="70" height="60" executionOrderId="0">
-              <position x="1850" y="470"/>
+              <position x="2160" y="800"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="39" formalParameter="OUT">
-                      <position x="1850" y="500"/>
-                      <position x="1820" y="500"/>
-                      <position x="1820" y="370"/>
-                      <position x="1790" y="370"/>
+                    <connection refLocalId="46" formalParameter="OUT">
+                      <position x="2160" y="830"/>
+                      <position x="2150" y="830"/>
+                      <position x="2150" y="790"/>
+                      <position x="2480" y="790"/>
+                      <position x="2480" y="830"/>
+                      <position x="2470" y="830"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
                 <variable formalParameter="IN2">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
-                    <connection refLocalId="34" formalParameter="Q1">
-                      <position x="1850" y="520"/>
-                      <position x="1840" y="520"/>
-                      <position x="1840" y="310"/>
-                      <position x="2290" y="310"/>
-                      <position x="2290" y="370"/>
-                      <position x="2280" y="370"/>
+                    <connection refLocalId="52" formalParameter="OUT">
+                      <position x="2160" y="850"/>
+                      <position x="2065" y="850"/>
+                      <position x="2065" y="800"/>
+                      <position x="1970" y="800"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1449,16 +1519,16 @@ En este caso concreto la bocina suna durante 4 segundos
               </outputVariables>
             </block>
             <block localId="48" typeName="OR" width="70" height="60" executionOrderId="0">
-              <position x="2120" y="530"/>
+              <position x="2160" y="900"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="49" formalParameter="OUT">
-                      <position x="2120" y="560"/>
-                      <position x="2085" y="560"/>
-                      <position x="2085" y="530"/>
-                      <position x="2070" y="530"/>
+                      <position x="2160" y="930"/>
+                      <position x="2135" y="930"/>
+                      <position x="2135" y="900"/>
+                      <position x="2110" y="900"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1466,10 +1536,10 @@ En este caso concreto la bocina suna durante 4 segundos
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="42" formalParameter="Q">
-                      <position x="2120" y="580"/>
-                      <position x="2030" y="580"/>
-                      <position x="2030" y="710"/>
-                      <position x="1940" y="710"/>
+                      <position x="2160" y="950"/>
+                      <position x="2075" y="950"/>
+                      <position x="2075" y="1120"/>
+                      <position x="1990" y="1120"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1484,29 +1554,29 @@ En este caso concreto la bocina suna durante 4 segundos
               </outputVariables>
             </block>
             <block localId="49" typeName="AND" width="70" height="60" executionOrderId="0">
-              <position x="2000" y="500"/>
+              <position x="2040" y="870"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="37" formalParameter="Q1">
-                      <position x="2000" y="530"/>
-                      <position x="1990" y="530"/>
-                      <position x="1990" y="610"/>
-                      <position x="2290" y="610"/>
-                      <position x="2290" y="490"/>
-                      <position x="2280" y="490"/>
+                    <connection refLocalId="52" formalParameter="OUT">
+                      <position x="2040" y="900"/>
+                      <position x="2005" y="900"/>
+                      <position x="2005" y="800"/>
+                      <position x="1970" y="800"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
                 <variable formalParameter="IN2">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
-                    <connection refLocalId="47" formalParameter="OUT">
-                      <position x="2000" y="550"/>
-                      <position x="1960" y="550"/>
-                      <position x="1960" y="500"/>
-                      <position x="1920" y="500"/>
+                    <connection refLocalId="37" formalParameter="Q1">
+                      <position x="2040" y="920"/>
+                      <position x="2030" y="920"/>
+                      <position x="2030" y="980"/>
+                      <position x="2320" y="980"/>
+                      <position x="2320" y="870"/>
+                      <position x="2310" y="870"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1520,15 +1590,69 @@ En este caso concreto la bocina suna durante 4 segundos
                 </variable>
               </outputVariables>
             </block>
-            <block localId="50" typeName="R_TRIG" instanceName="R_TRIG0" width="60" height="40">
-              <position x="870" y="650"/>
+            <block localId="52" typeName="AND" width="70" height="60" executionOrderId="0">
+              <position x="1900" y="770"/>
               <inputVariables>
-                <variable formalParameter="CLK">
+                <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="14" formalParameter="OUT">
-                      <position x="870" y="680"/>
-                      <position x="790" y="680"/>
+                    <connection refLocalId="34" formalParameter="Q1">
+                      <position x="1900" y="800"/>
+                      <position x="1890" y="800"/>
+                      <position x="1890" y="740"/>
+                      <position x="2340" y="740"/>
+                      <position x="2340" y="620"/>
+                      <position x="2330" y="620"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="45" formalParameter="OUT">
+                      <position x="1900" y="820"/>
+                      <position x="1830" y="820"/>
+                      <position x="1830" y="700"/>
+                      <position x="1960" y="700"/>
+                      <position x="1960" y="570"/>
+                      <position x="1950" y="570"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="70" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="57" typeName="TON" instanceName="TON1" width="50" height="60">
+              <position x="1770" y="510"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="25" formalParameter="Q1">
+                      <position x="1770" y="540"/>
+                      <position x="1760" y="540"/>
+                      <position x="1760" y="455"/>
+                      <position x="2330" y="455"/>
+                      <position x="2330" y="370"/>
+                      <position x="2320" y="370"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="PT">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="58">
+                      <position x="1770" y="560"/>
+                      <position x="1735" y="560"/>
+                      <position x="1735" y="570"/>
+                      <position x="1700" y="570"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1537,28 +1661,32 @@ En este caso concreto la bocina suna durante 4 segundos
               <outputVariables>
                 <variable formalParameter="Q">
                   <connectionPointOut>
-                    <relPosition x="60" y="30"/>
+                    <relPosition x="50" y="30"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="ET">
+                  <connectionPointOut>
+                    <relPosition x="50" y="50"/>
                   </connectionPointOut>
                 </variable>
               </outputVariables>
             </block>
-            <block localId="51" typeName="R_TRIG" instanceName="R_TRIG1" width="60" height="40" executionOrderId="0">
-              <position x="870" y="770"/>
+            <inVariable localId="58" width="80" height="30" negated="false">
+              <position x="1620" y="550"/>
+              <connectionPointOut>
+                <relPosition x="80" y="20"/>
+              </connectionPointOut>
+              <expression>T#1000ms</expression>
+            </inVariable>
+            <block localId="50" typeName="R_TRIG" instanceName="R_TRIG2" width="60" height="40" executionOrderId="0">
+              <position x="740" y="970"/>
               <inputVariables>
                 <variable formalParameter="CLK">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="19" formalParameter="OUT">
-                      <position x="870" y="800"/>
-                      <position x="800" y="800"/>
-                    </connection>
-                    <connection refLocalId="19" formalParameter="OUT">
-                      <position x="870" y="800"/>
-                      <position x="800" y="800"/>
-                    </connection>
-                    <connection refLocalId="19" formalParameter="OUT">
-                      <position x="870" y="800"/>
-                      <position x="800" y="800"/>
+                    <connection refLocalId="14" formalParameter="OUT">
+                      <position x="740" y="1000"/>
+                      <position x="660" y="1000"/>
                     </connection>
                   </connectionPointIn>
                 </variable>

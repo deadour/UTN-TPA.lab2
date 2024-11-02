@@ -65,6 +65,7 @@ void PROGRAM0_init__(PROGRAM0 *data__, BOOL retain) {
   TON_init__(&data__->TON0,retain);
   R_TRIG_init__(&data__->R_TRIG0,retain);
   R_TRIG_init__(&data__->R_TRIG1,retain);
+  TON_init__(&data__->TON1,retain);
   __INIT_VAR(data__->_TMP_GT14_OUT,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->_TMP_LT19_OUT,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->_TMP_OR20_OUT,__BOOL_LITERAL(FALSE),retain)
@@ -76,15 +77,18 @@ void PROGRAM0_init__(PROGRAM0 *data__, BOOL retain) {
   __INIT_VAR(data__->_TMP_NOT32_OUT,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->_TMP_AND30_OUT,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->_TMP_OR28_OUT,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->_TMP_XOR35_OUT,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->_TMP_AND40_OUT,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->_TMP_NOT55_OUT,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->_TMP_AND54_OUT,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->_TMP_AND36_OUT,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->_TMP_OR41_OUT,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->_TMP_OR45_OUT,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->_TMP_OR35_OUT,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->_TMP_NOT38_OUT,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->_TMP_AND45_OUT,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->_TMP_AND39_OUT,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->_TMP_XOR36_OUT,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->_TMP_AND46_OUT,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->_TMP_OR44_OUT,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->_TMP_XOR38_OUT,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->_TMP_AND44_OUT,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->_TMP_OR40_OUT,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->_TMP_NOT46_OUT,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->_TMP_AND52_OUT,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->_TMP_AND47_OUT,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->_TMP_AND49_OUT,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->_TMP_OR48_OUT,__BOOL_LITERAL(FALSE),retain)
@@ -171,13 +175,14 @@ void PROGRAM0_body__(PROGRAM0 *data__) {
     (BOOL)__GET_VAR(data__->TP2.Q,),
     (BOOL)__GET_VAR(data__->TP1.Q,)));
   __SET_VAR(data__->,BOCINA,,__GET_VAR(data__->_TMP_OR28_OUT,));
-  __SET_VAR(data__->,_TMP_XOR35_OUT,,XOR__BOOL__BOOL(
+  __SET_VAR(data__->,_TMP_NOT55_OUT,,!(__GET_VAR(data__->SR0.Q1,)));
+  __SET_VAR(data__->,_TMP_AND54_OUT,,AND__BOOL__BOOL(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
     (UINT)2,
-    (BOOL)__GET_VAR(data__->SR0.Q1,),
+    (BOOL)__GET_VAR(data__->_TMP_NOT55_OUT,),
     (BOOL)__GET_VAR(data__->_TMP_OR20_OUT,)));
-  __SET_VAR(data__->,_TMP_AND40_OUT,,AND__BOOL__BOOL(
+  __SET_VAR(data__->,_TMP_AND36_OUT,,AND__BOOL__BOOL(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
     (UINT)2,
@@ -192,68 +197,74 @@ void PROGRAM0_body__(PROGRAM0 *data__) {
   __SET_VAR(data__->TON0.,IN,,__GET_VAR(data__->_TMP_OR41_OUT,));
   __SET_VAR(data__->TON0.,PT,,__time_to_timespec(1, 50000, 0, 0, 0, 0));
   TON_body__(&data__->TON0);
-  __SET_VAR(data__->,_TMP_OR45_OUT,,OR__BOOL__BOOL(
+  __SET_VAR(data__->,_TMP_OR35_OUT,,OR__BOOL__BOOL(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
     (UINT)2,
-    (BOOL)__GET_VAR(data__->_TMP_AND40_OUT,),
+    (BOOL)__GET_VAR(data__->_TMP_AND36_OUT,),
     (BOOL)__GET_VAR(data__->TON0.Q,)));
-  __SET_VAR(data__->SR0.,S1,,__GET_VAR(data__->_TMP_XOR35_OUT,));
-  __SET_VAR(data__->SR0.,R,,__GET_VAR(data__->_TMP_OR45_OUT,));
+  __SET_VAR(data__->SR0.,S1,,__GET_VAR(data__->_TMP_AND54_OUT,));
+  __SET_VAR(data__->SR0.,R,,__GET_VAR(data__->_TMP_OR35_OUT,));
   SR_body__(&data__->SR0);
   __SET_VAR(data__->,LED1,,__GET_VAR(data__->SR0.Q1,));
+  __SET_VAR(data__->,_TMP_NOT38_OUT,,!(__GET_VAR(data__->SR1.Q1,)));
+  __SET_VAR(data__->TON1.,IN,,__GET_VAR(data__->SR0.Q1,));
+  __SET_VAR(data__->TON1.,PT,,__time_to_timespec(1, 1000, 0, 0, 0, 0));
+  TON_body__(&data__->TON1);
+  __SET_VAR(data__->,_TMP_AND45_OUT,,AND__BOOL__BOOL(
+    (BOOL)__BOOL_LITERAL(TRUE),
+    NULL,
+    (UINT)2,
+    (BOOL)__GET_VAR(data__->TON1.Q,),
+    (BOOL)__GET_VAR(data__->_TMP_OR20_OUT,)));
   __SET_VAR(data__->,_TMP_AND39_OUT,,AND__BOOL__BOOL(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
     (UINT)2,
-    (BOOL)__GET_VAR(data__->SR0.Q1,),
-    (BOOL)__GET_VAR(data__->_TMP_OR20_OUT,)));
-  __SET_VAR(data__->,_TMP_XOR36_OUT,,XOR__BOOL__BOOL(
+    (BOOL)__GET_VAR(data__->_TMP_NOT38_OUT,),
+    (BOOL)__GET_VAR(data__->_TMP_AND45_OUT,)));
+  __SET_VAR(data__->,_TMP_AND44_OUT,,AND__BOOL__BOOL(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
     (UINT)2,
-    (BOOL)__GET_VAR(data__->SR1.Q1,),
-    (BOOL)__GET_VAR(data__->_TMP_AND39_OUT,)));
-  __SET_VAR(data__->,_TMP_AND46_OUT,,AND__BOOL__BOOL(
+    (BOOL)__GET_VAR(data__->_TMP_AND45_OUT,),
+    (BOOL)__GET_VAR(data__->SR1.Q1,)));
+  __SET_VAR(data__->,_TMP_OR40_OUT,,OR__BOOL__BOOL(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
     (UINT)2,
-    (BOOL)__GET_VAR(data__->SR1.Q1,),
-    (BOOL)__GET_VAR(data__->_TMP_AND39_OUT,)));
-  __SET_VAR(data__->,_TMP_OR44_OUT,,OR__BOOL__BOOL(
-    (BOOL)__BOOL_LITERAL(TRUE),
-    NULL,
-    (UINT)2,
-    (BOOL)__GET_VAR(data__->_TMP_AND46_OUT,),
+    (BOOL)__GET_VAR(data__->_TMP_AND44_OUT,),
     (BOOL)__GET_VAR(data__->TON0.Q,)));
-  __SET_VAR(data__->SR1.,S1,,__GET_VAR(data__->_TMP_XOR36_OUT,));
-  __SET_VAR(data__->SR1.,R,,__GET_VAR(data__->_TMP_OR44_OUT,));
+  __SET_VAR(data__->SR1.,S1,,__GET_VAR(data__->_TMP_AND39_OUT,));
+  __SET_VAR(data__->SR1.,R,,__GET_VAR(data__->_TMP_OR40_OUT,));
   SR_body__(&data__->SR1);
   __SET_VAR(data__->,LED2,,__GET_VAR(data__->SR1.Q1,));
-  __SET_VAR(data__->,_TMP_XOR38_OUT,,XOR__BOOL__BOOL(
+  __SET_VAR(data__->,_TMP_NOT46_OUT,,!(__GET_VAR(data__->SR2.Q1,)));
+  __SET_VAR(data__->,_TMP_AND52_OUT,,AND__BOOL__BOOL(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
-    (UINT)1,
-    (BOOL)__GET_VAR(data__->SR2.Q1,)));
+    (UINT)2,
+    (BOOL)__GET_VAR(data__->SR1.Q1,),
+    (BOOL)__GET_VAR(data__->_TMP_AND45_OUT,)));
   __SET_VAR(data__->,_TMP_AND47_OUT,,AND__BOOL__BOOL(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
     (UINT)2,
-    (BOOL)__GET_VAR(data__->_TMP_AND39_OUT,),
-    (BOOL)__GET_VAR(data__->SR1.Q1,)));
+    (BOOL)__GET_VAR(data__->_TMP_NOT46_OUT,),
+    (BOOL)__GET_VAR(data__->_TMP_AND52_OUT,)));
   __SET_VAR(data__->,_TMP_AND49_OUT,,AND__BOOL__BOOL(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
     (UINT)2,
-    (BOOL)__GET_VAR(data__->SR2.Q1,),
-    (BOOL)__GET_VAR(data__->_TMP_AND47_OUT,)));
+    (BOOL)__GET_VAR(data__->_TMP_AND52_OUT,),
+    (BOOL)__GET_VAR(data__->SR2.Q1,)));
   __SET_VAR(data__->,_TMP_OR48_OUT,,OR__BOOL__BOOL(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
     (UINT)2,
     (BOOL)__GET_VAR(data__->_TMP_AND49_OUT,),
     (BOOL)__GET_VAR(data__->TON0.Q,)));
-  __SET_VAR(data__->SR2.,S1,,__GET_VAR(data__->_TMP_XOR38_OUT,));
+  __SET_VAR(data__->SR2.,S1,,__GET_VAR(data__->_TMP_AND47_OUT,));
   __SET_VAR(data__->SR2.,R,,__GET_VAR(data__->_TMP_OR48_OUT,));
   SR_body__(&data__->SR2);
   __SET_VAR(data__->,LED3,,__GET_VAR(data__->SR2.Q1,));
