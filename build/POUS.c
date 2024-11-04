@@ -64,22 +64,22 @@ void PROGRAM0_init__(PROGRAM0 *data__, BOOL retain) {
   F_TRIG_init__(&data__->F_TRIG0,retain);
   F_TRIG_init__(&data__->F_TRIG1,retain);
   TP_init__(&data__->TP3,retain);
-  TON_init__(&data__->TON1,retain);
-  TON_init__(&data__->TON2,retain);
-  TON_init__(&data__->TON3,retain);
-  TON_init__(&data__->TON4,retain);
+  TP_init__(&data__->TP1,retain);
+  TP_init__(&data__->TP2,retain);
+  TP_init__(&data__->TP4,retain);
   __INIT_VAR(data__->SONIDO1,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->SONIDO2,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->SONIDO3,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->SONIDO4,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->SONIDO5,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->DISPLAY,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->RESET_LEDS,__BOOL_LITERAL(FALSE),retain)
+  TP_init__(&data__->TP0,retain);
+  F_TRIG_init__(&data__->F_TRIG3,retain);
+  F_TRIG_init__(&data__->F_TRIG4,retain);
+  F_TRIG_init__(&data__->F_TRIG5,retain);
+  F_TRIG_init__(&data__->F_TRIG6,retain);
   __INIT_VAR(data__->_TMP_NOT55_OUT,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->_TMP_GT14_OUT,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->_TMP_AND61_OUT,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->_TMP_LT19_OUT,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->_TMP_AND53_OUT,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->_TMP_OR20_OUT,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->_TMP_AND54_OUT,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->_TMP_AND36_OUT,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->_TMP_OR35_OUT,__BOOL_LITERAL(FALSE),retain)
@@ -93,6 +93,11 @@ void PROGRAM0_init__(PROGRAM0 *data__, BOOL retain) {
   __INIT_VAR(data__->_TMP_AND47_OUT,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->_TMP_AND49_OUT,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->_TMP_OR48_OUT,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->_TMP_GT14_OUT,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->_TMP_AND61_OUT,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->_TMP_LT19_OUT,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->_TMP_AND53_OUT,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->_TMP_OR20_OUT,__BOOL_LITERAL(FALSE),retain)
   R_TRIG_init__(&data__->R_TRIG3,retain);
   R_TRIG_init__(&data__->R_TRIG4,retain);
   __INIT_VAR(data__->_TMP_AND27_OUT,__BOOL_LITERAL(FALSE),retain)
@@ -106,56 +111,42 @@ void PROGRAM0_init__(PROGRAM0 *data__, BOOL retain) {
 void PROGRAM0_body__(PROGRAM0 *data__) {
   // Initialise TEMP variables
 
-  __SET_VAR(data__->TP3.,IN,,__GET_VAR(data__->SONIDO1,));
+  __SET_VAR(data__->TP0.,IN,,__GET_VAR(data__->SONIDO2,));
+  __SET_VAR(data__->TP0.,PT,,__time_to_timespec(1, 3000, 0, 0, 0, 0));
+  TP_body__(&data__->TP0);
+  __SET_VAR(data__->F_TRIG3.,CLK,,__GET_VAR(data__->TP0.Q,));
+  F_TRIG_body__(&data__->F_TRIG3);
+  __SET_VAR(data__->TP1.,IN,,__GET_VAR(data__->SONIDO3,));
+  __SET_VAR(data__->TP1.,PT,,__time_to_timespec(1, 6000, 0, 0, 0, 0));
+  TP_body__(&data__->TP1);
+  __SET_VAR(data__->F_TRIG4.,CLK,,__GET_VAR(data__->TP1.Q,));
+  F_TRIG_body__(&data__->F_TRIG4);
+  __SET_VAR(data__->TP2.,IN,,__GET_VAR(data__->SONIDO4,));
+  __SET_VAR(data__->TP2.,PT,,__time_to_timespec(1, 9000, 0, 0, 0, 0));
+  TP_body__(&data__->TP2);
+  __SET_VAR(data__->F_TRIG5.,CLK,,__GET_VAR(data__->TP2.Q,));
+  F_TRIG_body__(&data__->F_TRIG5);
+  __SET_VAR(data__->TP4.,IN,,__GET_VAR(data__->SONIDO5,));
+  __SET_VAR(data__->TP4.,PT,,__time_to_timespec(1, 12000, 0, 0, 0, 0));
+  TP_body__(&data__->TP4);
+  __SET_VAR(data__->F_TRIG6.,CLK,,__GET_VAR(data__->TP4.Q,));
+  F_TRIG_body__(&data__->F_TRIG6);
+  __SET_VAR(data__->TP3.,IN,,((((__GET_VAR(data__->F_TRIG3.Q,) || __GET_VAR(data__->F_TRIG4.Q,)) || __GET_VAR(data__->F_TRIG5.Q,)) || __GET_VAR(data__->F_TRIG6.Q,)) || __GET_VAR(data__->SONIDO1,)));
   __SET_VAR(data__->TP3.,PT,,__time_to_timespec(1, 2000, 0, 0, 0, 0));
   TP_body__(&data__->TP3);
   __SET_VAR(data__->,BOCINA,,__GET_VAR(data__->TP3.Q,));
   __SET_VAR(data__->,_TMP_NOT55_OUT,,!(__GET_VAR(data__->SR0.Q1,)));
-  __SET_VAR(data__->,_TMP_GT14_OUT,,GT__BOOL__WORD(
-    (BOOL)__BOOL_LITERAL(TRUE),
-    NULL,
-    (UINT)2,
-    (WORD)__GET_VAR(data__->SENSOR_HALL,),
-    (WORD)34952));
-  __SET_VAR(data__->,_TMP_AND61_OUT,,AND__BOOL__BOOL(
-    (BOOL)__BOOL_LITERAL(TRUE),
-    NULL,
-    (UINT)2,
-    (BOOL)__GET_VAR(data__->PULSADOR,),
-    (BOOL)__GET_VAR(data__->_TMP_GT14_OUT,)));
-  __SET_VAR(data__->R_TRIG2.,CLK,,__GET_VAR(data__->_TMP_AND61_OUT,));
-  R_TRIG_body__(&data__->R_TRIG2);
-  __SET_VAR(data__->,_TMP_LT19_OUT,,LT__BOOL__WORD(
-    (BOOL)__BOOL_LITERAL(TRUE),
-    NULL,
-    (UINT)2,
-    (WORD)__GET_VAR(data__->SENSOR_HALL,),
-    (WORD)31774));
-  __SET_VAR(data__->,_TMP_AND53_OUT,,AND__BOOL__BOOL(
-    (BOOL)__BOOL_LITERAL(TRUE),
-    NULL,
-    (UINT)2,
-    (BOOL)__GET_VAR(data__->_TMP_LT19_OUT,),
-    (BOOL)__GET_VAR(data__->PULSADOR,)));
-  __SET_VAR(data__->R_TRIG1.,CLK,,__GET_VAR(data__->_TMP_AND53_OUT,));
-  R_TRIG_body__(&data__->R_TRIG1);
-  __SET_VAR(data__->,_TMP_OR20_OUT,,OR__BOOL__BOOL(
-    (BOOL)__BOOL_LITERAL(TRUE),
-    NULL,
-    (UINT)2,
-    (BOOL)__GET_VAR(data__->R_TRIG2.Q,),
-    (BOOL)__GET_VAR(data__->R_TRIG1.Q,)));
   __SET_VAR(data__->,_TMP_AND54_OUT,,AND__BOOL__BOOL(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
     (UINT)2,
     (BOOL)__GET_VAR(data__->_TMP_NOT55_OUT,),
-    (BOOL)__GET_VAR(data__->_TMP_OR20_OUT,)));
+    (BOOL)__GET_VAR(data__->DISPLAY,)));
   __SET_VAR(data__->,_TMP_AND36_OUT,,AND__BOOL__BOOL(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
     (UINT)2,
-    (BOOL)__GET_VAR(data__->_TMP_OR20_OUT,),
+    (BOOL)__GET_VAR(data__->DISPLAY,),
     (BOOL)__GET_VAR(data__->SR0.Q1,)));
   __SET_VAR(data__->,_TMP_OR35_OUT,,OR__BOOL__BOOL(
     (BOOL)__BOOL_LITERAL(TRUE),
@@ -175,7 +166,7 @@ void PROGRAM0_body__(PROGRAM0 *data__) {
     NULL,
     (UINT)2,
     (BOOL)__GET_VAR(data__->F_TRIG0.Q,),
-    (BOOL)__GET_VAR(data__->_TMP_OR20_OUT,)));
+    (BOOL)__GET_VAR(data__->DISPLAY,)));
   __SET_VAR(data__->,_TMP_AND39_OUT,,AND__BOOL__BOOL(
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
@@ -229,6 +220,41 @@ void PROGRAM0_body__(PROGRAM0 *data__) {
   __SET_VAR(data__->SR2.,R,,__GET_VAR(data__->_TMP_OR48_OUT,));
   SR_body__(&data__->SR2);
   __SET_VAR(data__->,LED3,,__GET_VAR(data__->SR2.Q1,));
+  __SET_VAR(data__->,RESET_LEDS,,__GET_VAR(data__->F_TRIG5.Q,));
+  __SET_VAR(data__->,_TMP_GT14_OUT,,GT__BOOL__WORD(
+    (BOOL)__BOOL_LITERAL(TRUE),
+    NULL,
+    (UINT)2,
+    (WORD)__GET_VAR(data__->SENSOR_HALL,),
+    (WORD)34952));
+  __SET_VAR(data__->,_TMP_AND61_OUT,,AND__BOOL__BOOL(
+    (BOOL)__BOOL_LITERAL(TRUE),
+    NULL,
+    (UINT)2,
+    (BOOL)__GET_VAR(data__->PULSADOR,),
+    (BOOL)__GET_VAR(data__->_TMP_GT14_OUT,)));
+  __SET_VAR(data__->R_TRIG2.,CLK,,__GET_VAR(data__->_TMP_AND61_OUT,));
+  R_TRIG_body__(&data__->R_TRIG2);
+  __SET_VAR(data__->,_TMP_LT19_OUT,,LT__BOOL__WORD(
+    (BOOL)__BOOL_LITERAL(TRUE),
+    NULL,
+    (UINT)2,
+    (WORD)__GET_VAR(data__->SENSOR_HALL,),
+    (WORD)31774));
+  __SET_VAR(data__->,_TMP_AND53_OUT,,AND__BOOL__BOOL(
+    (BOOL)__BOOL_LITERAL(TRUE),
+    NULL,
+    (UINT)2,
+    (BOOL)__GET_VAR(data__->_TMP_LT19_OUT,),
+    (BOOL)__GET_VAR(data__->PULSADOR,)));
+  __SET_VAR(data__->R_TRIG1.,CLK,,__GET_VAR(data__->_TMP_AND53_OUT,));
+  R_TRIG_body__(&data__->R_TRIG1);
+  __SET_VAR(data__->,_TMP_OR20_OUT,,OR__BOOL__BOOL(
+    (BOOL)__BOOL_LITERAL(TRUE),
+    NULL,
+    (UINT)2,
+    (BOOL)__GET_VAR(data__->R_TRIG2.Q,),
+    (BOOL)__GET_VAR(data__->R_TRIG1.Q,)));
   __SET_VAR(data__->R_TRIG3.,CLK,,__GET_VAR(data__->_TMP_OR20_OUT,));
   R_TRIG_body__(&data__->R_TRIG3);
   __SET_VAR(data__->RS0.,S,,__GET_VAR(data__->CTU0.Q,));
@@ -260,25 +286,6 @@ void PROGRAM0_body__(PROGRAM0 *data__) {
     (UINT)2,
     (BOOL)__GET_VAR(data__->_TMP_NOT32_OUT,),
     (BOOL)__GET_VAR(data__->CTU1.Q,)));
-  __SET_VAR(data__->,SONIDO1,,__GET_VAR(data__->_TMP_AND30_OUT,));
-  __SET_VAR(data__->TON1.,IN,,__GET_VAR(data__->SONIDO2,));
-  __SET_VAR(data__->TON1.,PT,,__time_to_timespec(1, 3000, 0, 0, 0, 0));
-  TON_body__(&data__->TON1);
-  __SET_VAR(data__->,SONIDO1,,__GET_VAR(data__->TON1.Q,));
-  __SET_VAR(data__->TON2.,IN,,__GET_VAR(data__->SONIDO3,));
-  __SET_VAR(data__->TON2.,PT,,__time_to_timespec(1, 6000, 0, 0, 0, 0));
-  TON_body__(&data__->TON2);
-  __SET_VAR(data__->,SONIDO1,,__GET_VAR(data__->TON2.Q,));
-  __SET_VAR(data__->TON3.,IN,,__GET_VAR(data__->SONIDO4,));
-  __SET_VAR(data__->TON3.,PT,,__time_to_timespec(1, 9000, 0, 0, 0, 0));
-  TON_body__(&data__->TON3);
-  __SET_VAR(data__->,SONIDO1,,__GET_VAR(data__->TON3.Q,));
-  __SET_VAR(data__->TON4.,IN,,__GET_VAR(data__->SONIDO5,));
-  __SET_VAR(data__->TON4.,PT,,__time_to_timespec(1, 12000, 0, 0, 0, 0));
-  TON_body__(&data__->TON4);
-  __SET_VAR(data__->,SONIDO1,,__GET_VAR(data__->TON4.Q,));
-  __SET_VAR(data__->,SONIDO2,,__GET_VAR(data__->_TMP_AND30_OUT,));
-  __SET_VAR(data__->,SONIDO3,,__GET_VAR(data__->_TMP_AND30_OUT,));
   __SET_VAR(data__->,_TMP_NOT31_OUT,,!(__GET_VAR(data__->_TMP_AND27_OUT,)));
   __SET_VAR(data__->,_TMP_AND29_OUT,,AND__BOOL__BOOL(
     (BOOL)__BOOL_LITERAL(TRUE),
@@ -286,16 +293,12 @@ void PROGRAM0_body__(PROGRAM0 *data__) {
     (UINT)2,
     (BOOL)__GET_VAR(data__->CTU0.Q,),
     (BOOL)__GET_VAR(data__->_TMP_NOT31_OUT,)));
-  __SET_VAR(data__->,SONIDO1,,__GET_VAR(data__->_TMP_AND29_OUT,));
-  __SET_VAR(data__->,SONIDO2,,__GET_VAR(data__->_TMP_AND29_OUT,));
-  __SET_VAR(data__->,SONIDO3,,__GET_VAR(data__->_TMP_AND29_OUT,));
+  __SET_VAR(data__->,SONIDO3,,((__GET_VAR(data__->_TMP_AND27_OUT,) || __GET_VAR(data__->_TMP_AND29_OUT,)) || __GET_VAR(data__->_TMP_AND30_OUT,)));
+  __SET_VAR(data__->,SONIDO2,,((__GET_VAR(data__->_TMP_AND27_OUT,) || __GET_VAR(data__->_TMP_AND29_OUT,)) || __GET_VAR(data__->_TMP_AND30_OUT,)));
+  __SET_VAR(data__->,SONIDO4,,(__GET_VAR(data__->_TMP_AND27_OUT,) || __GET_VAR(data__->_TMP_AND29_OUT,)));
   __SET_VAR(data__->,SONIDO5,,__GET_VAR(data__->_TMP_AND29_OUT,));
-  __SET_VAR(data__->,SONIDO4,,__GET_VAR(data__->_TMP_AND29_OUT,));
-  __SET_VAR(data__->,RESET_LEDS,,__GET_VAR(data__->TON4.Q,));
-  __SET_VAR(data__->,SONIDO1,,__GET_VAR(data__->_TMP_AND27_OUT,));
-  __SET_VAR(data__->,SONIDO2,,__GET_VAR(data__->_TMP_AND27_OUT,));
-  __SET_VAR(data__->,SONIDO3,,__GET_VAR(data__->_TMP_AND27_OUT,));
-  __SET_VAR(data__->,SONIDO4,,__GET_VAR(data__->_TMP_AND27_OUT,));
+  __SET_VAR(data__->,SONIDO1,,((__GET_VAR(data__->_TMP_AND27_OUT,) || __GET_VAR(data__->_TMP_AND29_OUT,)) || __GET_VAR(data__->_TMP_AND30_OUT,)));
+  __SET_VAR(data__->,DISPLAY,,__GET_VAR(data__->_TMP_OR20_OUT,));
 
   goto __end;
 
